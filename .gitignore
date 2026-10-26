@@ -1,0 +1,11 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Exported game files
+*.zip
+BooWeb/
+
+# Temporary and imported files
+*.tmp
+*.import

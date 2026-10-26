@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dim53a3xoadfi"]
+
+[ext_resource type="Script" uid="uid://c8g7f0y1dyaa8" path="res://scenes/scripts/boo.gd" id="1_kdc1l"]
+[ext_resource type="Texture2D" uid="uid://d2o25mohevre8" path="res://assets/sprites/boo_idle 2.png" id="2_kdc1l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vog4"]
+height = 28.0
+
+[node name="Boo" type="CharacterBody2D" unique_id=245074282]
+script = ExtResource("1_kdc1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1432336048]
+texture_filter = 1
+texture = ExtResource("2_kdc1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1475746699]
+shape = SubResource("CapsuleShape2D_2vog4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1868545367]

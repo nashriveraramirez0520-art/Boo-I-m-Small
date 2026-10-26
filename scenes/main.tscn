@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://rx56aipgkyt3"]
+
+[ext_resource type="Script" uid="uid://dphgkm7ns21gj" path="res://scenes/scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dim53a3xoadfi" path="res://scenes/boo.tscn" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://cix7etx7egsol" path="res://assets/backgrounds/room.png" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://b3t14gx2o2tsd" path="res://scenes/scripts/window_interaction.gd" id="3_sugp2"]
+[ext_resource type="Texture2D" uid="uid://dsrkc14swnsj" path="res://assets/sprites/human_idle.png" id="5_tbgi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jtaq"]
+size = Vector2(66.75, 124.5)
+
+[node name="Main" type="Node2D" unique_id=2006102369]
+position = Vector2(-2, -1)
+script = ExtResource("1_jyhfs")
+
+[node name="Boo" parent="." unique_id=245074282 instance=ExtResource("1_o5qli")]
+position = Vector2(320, 180)
+up_direction = Vector2(1, -9.375e-06)
+
+[node name="Room" type="Sprite2D" parent="." unique_id=2026078502]
+z_index = -1
+texture_filter = 1
+position = Vector2(320, 180)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0wfyh")
+
+[node name="Window Interaction" type="Area2D" parent="." unique_id=1391970723]
+script = ExtResource("3_sugp2")
+scare_message = "BOO! Someone knocked on the window!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Window Interaction" unique_id=655555065]
+position = Vector2(64, 127.5)
+shape = SubResource("RectangleShape2D_6jtaq")
+
+[node name="Door Interaction" type="Area2D" parent="." unique_id=1540666766]
+script = ExtResource("3_sugp2")
+scare_message = "BOO! The door is shaking!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door Interaction" unique_id=2005183353]
+position = Vector2(465.625, 120.25)
+shape = SubResource("RectangleShape2D_6jtaq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2067877824]
+
+[node name="FearLabel" type="Label" parent="CanvasLayer" unique_id=492702818]
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 101.0
+offset_bottom = 38.0
+text = "Fear: 0/100"
+
+[node name="MessageLabel" type="Label" parent="CanvasLayer" unique_id=219144656]
+offset_left = 150.0
+offset_top = 305.0
+offset_right = 275.0
+offset_bottom = 328.0
+theme_override_colors/font_color = Color(0.86011386, 0.8022091, 0.033334587, 1)
+theme_override_font_sizes/font_size = 18
+text = "Press E to scare!"
+
+[node name="Human" type="Node2D" parent="." unique_id=880238208]
+
+[node name="Sprite2D" type="Sprite2D" parent="Human" unique_id=773572585]
+texture_filter = 1
+position = Vector2(465, 245)
+scale = Vector2(3.0416665, 3.2187498)
+texture = ExtResource("5_tbgi4")
